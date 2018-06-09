@@ -9,7 +9,8 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:background="@color/primary_dark">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -161,21 +162,21 @@
                 android:textSize="@dimen/margin_medium_2" />
 
             <TextView
+                android:id="@+id/tv_watch_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_watch_next"
+                android:layout_above="@id/fl_watch"
+                android:layout_below="@id/tv_about_2"
+                android:layout_marginTop="@dimen/margin_medium_3"
                 android:text="Watch Next"
                 android:textColor="#000000"
-                android:textSize="@dimen/margin_medium_3"
-                android:layout_marginTop="@dimen/margin_medium_3"
-                android:layout_above="@id/fl_watch"
-                android:layout_below="@id/tv_about_2"/>
+                android:textSize="@dimen/margin_medium_3" />
 
             <FrameLayout
                 android:id="@+id/fl_watch"
-                android:layout_below="@id/tv_about_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tv_about_2"
                 android:layout_marginTop="@dimen/margin_medium_3">
 
                 <android.support.v7.widget.RecyclerView
