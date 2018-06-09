@@ -17,14 +17,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="NewsAction">
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="android:background">@color/bg_btn_white</item>
-        <item name="android:clickable">false</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:drawablePadding">@dimen/margin_medium_3</item>
-    </style>
+
 
 
 
