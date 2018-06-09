@@ -10,17 +10,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.padcmyanmar.ted2assignment.R;
+import com.padcmyanmar.ted2assignment.delegates.TedDelegate;
 import com.padcmyanmar.ted2assignment.viewHolders.TedTalksViewHolder;
 
 public class TedTalkAdapter extends RecyclerView.Adapter {
 
+    private TedDelegate tedDelegate;
+
+    public TedTalkAdapter(TedDelegate tedDelegate)
+    {
+        this.tedDelegate=tedDelegate;
+    }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.view_holder_ted, parent, false);
 
-        return new TedTalksViewHolder(view);
+        return new TedTalksViewHolder(view,tedDelegate);
     }
 
     @Override
@@ -30,6 +37,6 @@ public class TedTalkAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 9;
     }
 }

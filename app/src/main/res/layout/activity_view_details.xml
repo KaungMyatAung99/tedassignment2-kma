@@ -1,59 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="wrap_content">
+
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width=""
-        android:layout_height="">
-        
-        
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/iv_news_backdrop_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ted1" />
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
     </android.support.design.widget.AppBarLayout>
-    
-    
+
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginRight="@dimen/margin_medium">
+        android:layout_marginRight="@dimen/margin_medium"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_speaker_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
                 android:text="Ingrid Fetell Lee"
-                android:textColor="#000000"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_title"
-                android:text="Where joy hides and how to find it"
-                android:layout_below="@+id/tv_speaker_name"
                 android:textColor="#000000"
-                android:textStyle="bold"
+                android:textSize="@dimen/margin_medium_2" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_speaker_name"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="Where joy hides and how to find it"
+                android:textColor="#000000"
                 android:textSize="@dimen/margin_medium_3"
-                />
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_detail_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="Cherry blossoms and rainbows, bubbles and google eyes: Why do some things seem to create such universal joy? In this captivating talk, Ingrid Fetell Lee Reveals the surprisingly tangible roots of joy and shows how we all can find -- and create -- more of it in the world around us."
+                android:textColor="#000000"
+                android:textSize="@dimen/margin_medium_2" />
+
+            <TextView
+                android:id="@+id/tv_detail_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_detail_1"
+                android:text="TED2018,Filmed Apr 2018"
+                android:textSize="@dimen/margin_medium_2"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/tv_thanks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_detail_2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="TED Talks are free thanks to support from"
+                android:textSize="@dimen/margin_medium_2"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/btn_thanks"
+                android:layout_width="235dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_thanks"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_medium" />
+
+            <TextView
+                android:id="@+id/about_speaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_thanks"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:text="About the Speaker"
+                android:textColor="#000000"
+                android:textSize="@dimen/margin_medium_3" />
+
+            <ImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/about_speaker"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ingrid" />
+
+            <TextView
+                android:id="@+id/tv_ingrid_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/iv_profile"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_toRightOf="@id/iv_profile"
+                android:text="Ingrid Fetell Lee"
+                android:textColor="#000000"
+                android:textSize="@dimen/margin_medium_2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_ingrid_name"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toRightOf="@id/iv_profile"
+                android:text="Designer, writer"
+                android:textSize="@dimen/margin_medium_2" />
+
+            <TextView
+                android:id="@+id/tv_about_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_about"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_toRightOf="@id/iv_profile"
+                android:text="Ingrid Fetell Lee studies joy and reveals how we can find more of it in the world around us."
+                android:textSize="@dimen/margin_medium_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/detail"
-                android:layout_below="@id/tv_title"/>
+                android:id="@+id/tv_watch_next"
+                android:text="Watch Next"
+                android:textColor="#000000"
+                android:textSize="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:layout_above="@id/fl_watch"
+                android:layout_below="@id/tv_about_2"/>
 
+            <FrameLayout
+                android:id="@+id/fl_watch"
+                android:layout_below="@id/tv_about_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_3">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_watch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
 
 
         </RelativeLayout>
 
-
     </android.support.v4.widget.NestedScrollView>
-    
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_medium_2"
+        android:src="@drawable/ic_play_arrow_white_24dp"
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="bottom|right" />
+
+
 </android.support.design.widget.CoordinatorLayout>
