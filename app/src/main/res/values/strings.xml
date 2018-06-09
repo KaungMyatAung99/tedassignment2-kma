@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ted2assignment</string>
     <string name="action_settings">Settings</string>
+
+    <string name="detail">Cherry blossoms and rainbows, bubbles and google eyes: Why do some things seem to create such universal joy? In this captivating talk, Ingrid Fetell Lee Reveals the surprisingly tangible roots of joy and shows how we all can find -- and create -- more of it in the world around us. </string>
+    <string name="detail_2">TED2018,Filmed Apr 2018</string>
+    <string name="about_speaker">Ingrid Fetell Lee Studies joy and reveals how we can find more of it in the world around us.</string>
 </resources>
