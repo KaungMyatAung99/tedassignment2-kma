@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.padcmyanmar.ted2assignment.R;
 import com.padcmyanmar.ted2assignment.adapters.WatchAdapter;
+import com.padcmyanmar.ted2assignment.data.models.TedTalkModel;
 
 public class TedTalksDetailActivity extends BaseActivity {
     @Override
@@ -20,5 +21,7 @@ public class TedTalksDetailActivity extends BaseActivity {
         recyclerView.setAdapter(watchAdapter);
         recyclerView.setLayoutManager((new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL,false)));
+
+        TedTalkModel.getObjInstance().loadTedTalk();
     }
 }
