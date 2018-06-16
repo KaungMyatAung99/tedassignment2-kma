@@ -22,6 +22,6 @@ public class TedTalksDetailActivity extends BaseActivity {
         recyclerView.setLayoutManager((new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL,false)));
 
-        TedTalkModel.getObjInstance().loadTedTalk();
+        //TedTalkModel.getObjInstance().loadTedTalk();
     }
 }

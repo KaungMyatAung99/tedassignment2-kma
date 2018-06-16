@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.padcmyanmar.ted2assignment.R;
 import com.padcmyanmar.ted2assignment.adapters.TedTalkAdapter;
+import com.padcmyanmar.ted2assignment.data.models.TedTalkModel;
 import com.padcmyanmar.ted2assignment.delegates.TedDelegate;
 
 public class MainActivity extends BaseActivity implements TedDelegate{
@@ -33,6 +34,8 @@ public class MainActivity extends BaseActivity implements TedDelegate{
                 LinearLayoutManager.VERTICAL,false)));
 
 
+        TedTalkModel.getObjInstance().loadTedTalk();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +44,8 @@ public class MainActivity extends BaseActivity implements TedDelegate{
                         .setAction("Action", null).show();
             }
         });
+
+
     }
 
     @Override

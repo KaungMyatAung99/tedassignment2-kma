@@ -35,7 +35,7 @@ public class HttpUrlConnectionDataAgentImpl implements TedTalkDataAgents {
     }
 
     @Override
-    public void loadTedTalk(int page, final String accessTaken) {
+    public void loadTedTalk(final int page, final String accessToken) {
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... voids) {
@@ -56,7 +56,9 @@ public class HttpUrlConnectionDataAgentImpl implements TedTalkDataAgents {
 
                     List<NameValuePair> params = new ArrayList<>();
                     params.add(new BasicNameValuePair(TedConstants.PARAM_ACCESS_TOKEN,
-                            accessTaken));
+                            accessToken));
+                    params.add(new BasicNameValuePair(TedConstants.PARAM_PAGE,
+                             String.valueOf(page)));
 
                     OutputStream outputStream = connection.getOutputStream();
                     BufferedWriter writer = new BufferedWriter(
@@ -78,12 +80,6 @@ public class HttpUrlConnectionDataAgentImpl implements TedTalkDataAgents {
 
                     String responseString = stringBuilder.toString();
 
-                    /*
-                    AttractionListResponse response = CommonInstances.getGsonInstance().fromJson(responseString, AttractionListResponse.class);
-                    List<AttractionVO> attractionList = response.getAttractionList();
-
-                    return attractionList;
-                      */
                     return responseString;
 
                 } catch (Exception e) {
