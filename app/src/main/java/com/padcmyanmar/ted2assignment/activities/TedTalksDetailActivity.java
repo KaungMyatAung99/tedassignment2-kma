@@ -5,15 +5,39 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.padcmyanmar.ted2assignment.R;
 import com.padcmyanmar.ted2assignment.adapters.WatchAdapter;
 import com.padcmyanmar.ted2assignment.data.models.TedTalkModel;
 import com.padcmyanmar.ted2assignment.data.vos.TedTalksVO;
 
+import butterknife.BindInt;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TedTalksDetailActivity extends BaseActivity {
+
+
+    @BindView(R.id.iv_news_backdrop_image)
+    ImageView ivBackDrop;
+
+    @BindView(R.id.tv_speaker_name)
+    TextView tvSpeakerName;
+
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
+
+    @BindView(R.id.tv_brief)
+    TextView tvBrief;
+
+    @BindView(R.id.tv_duration)
+    TextView tvDuration;
+
+    @BindView(R.id.tv_about_speaker_name)
+    TextView tvAboutSpeakerName;
 
 
     @Override
@@ -36,6 +60,11 @@ public class TedTalksDetailActivity extends BaseActivity {
     }
 
     private void BindData(TedTalksVO talks) {
-
+        Glide.with(ivBackDrop.getContext()).load(talks.getImageUrl()).into(ivBackDrop);
+        tvSpeakerName.setText(talks.getSpeakerVOs().getSpeakerName());
+        tvTitle.setText(talks.getTitle());
+        tvBrief.setText(talks.getDescription());
+        tvDuration.setText(talks.getDurationInSec());
+        tvAboutSpeakerName.setText(talks.getSpeakerVOs().getSpeakerName());
     }
 }
