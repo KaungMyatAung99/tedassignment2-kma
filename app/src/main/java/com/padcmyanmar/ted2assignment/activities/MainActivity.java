@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,9 +16,17 @@ import android.view.MenuItem;
 import com.padcmyanmar.ted2assignment.R;
 import com.padcmyanmar.ted2assignment.adapters.TedTalkAdapter;
 import com.padcmyanmar.ted2assignment.data.models.TedTalkModel;
+import com.padcmyanmar.ted2assignment.data.vos.TedTalksVO;
 import com.padcmyanmar.ted2assignment.delegates.TedDelegate;
+import com.padcmyanmar.ted2assignment.events.SuccessGetTedTalksEvent;
 
-public class MainActivity extends BaseActivity implements TedDelegate{
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+public class MainActivity extends BaseActivity implements TedDelegate {
+
+    private TedTalkAdapter tedTalkAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +37,10 @@ public class MainActivity extends BaseActivity implements TedDelegate{
 
 
         RecyclerView recyclerView = findViewById(R.id.rv_ted);
-        TedTalkAdapter tedTalkAdapter = new TedTalkAdapter(this);
+        tedTalkAdapter = new TedTalkAdapter(this);
         recyclerView.setAdapter(tedTalkAdapter);
         recyclerView.setLayoutManager((new LinearLayoutManager(getApplicationContext(),
-                LinearLayoutManager.VERTICAL,false)));
+                LinearLayoutManager.VERTICAL, false)));
 
 
         TedTalkModel.getObjInstance().loadTedTalk();
@@ -48,16 +57,42 @@ public class MainActivity extends BaseActivity implements TedDelegate{
 
     }
 
+
     @Override
-    public void onTapList() {
-        Intent intent=new Intent(getApplicationContext(),TedTalksDetailActivity.class);
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onTapList(TedTalksVO talks) {
+        Intent intent = new Intent(getApplicationContext(),TedTalksDetailActivity.class);
+        intent.putExtra("newsId",talks.getTalkId());
         startActivity(intent);
     }
 
     @Override
-    public void onSearch() {
+    public void onSearch(TedTalksVO talks) {
 
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSuccessGetTalks(SuccessGetTedTalksEvent event) {
+        Log.d("onSuccessGetNews", "onSuccessGetNews : " + event.getTedTalksList());
+        tedTalkAdapter.setTalksList(event.getTedTalksList());
+    }
+
+
+
+
+
+
 
     /*
     @Override

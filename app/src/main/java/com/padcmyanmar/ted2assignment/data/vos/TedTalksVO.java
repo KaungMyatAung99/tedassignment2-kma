@@ -1,20 +1,33 @@
 package com.padcmyanmar.ted2assignment.data.vos;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class TedTalksVO {
-    private int talkId;
+
+    @SerializedName("talk_id")
+    private String talkId;
+
+    @SerializedName("title")
     private String title;
 
+    @SerializedName("speaker")
     private SpeakerVO speakerVOs;
 
+    @SerializedName("imageUrl")
     private String imageUrl;
+
+    @SerializedName("durationInSec")
     private int durationInSec;
+
+    @SerializedName("description")
     private String description;
 
+    @SerializedName("tag")
     private List<TagVO> tagVos;
 
-    public int getTalkId() {
+    public String getTalkId() {
         return talkId;
     }
 

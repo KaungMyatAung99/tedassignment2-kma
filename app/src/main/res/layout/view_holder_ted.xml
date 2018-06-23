@@ -5,9 +5,15 @@
     android:layout_marginBottom="@dimen/margin_small"
     android:layout_marginLeft="@dimen/margin_medium"
     android:layout_marginRight="@dimen/margin_medium"
-    android:layout_marginTop="@dimen/margin_small"
-    android:background="@drawable/ted1"
-    >
+    android:layout_marginTop="@dimen/margin_small">
+
+
+    <ImageView
+        android:id="@+id/iv_talks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ted1" />
 
     <TextView
         android:id="@+id/tv_name"
@@ -19,7 +25,7 @@
         android:layout_marginStart="12dp"
         android:text="Speaker name"
         android:textColor="#ffffff"
-        android:textSize="@dimen/margin_medium_2"/>
+        android:textSize="@dimen/margin_medium_2" />
 
 
     <TextView
@@ -31,15 +37,15 @@
         android:layout_marginBottom="11dp"
         android:text="Do School kill creativity"
         android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="@dimen/margin_medium_2"/>
+        android:textSize="@dimen/margin_medium_2"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/tv_title"
+        android:layout_alignParentEnd="true"
         android:layout_marginEnd="17dp"
         android:text="19:20"
         android:textColor="#ffffff" />
