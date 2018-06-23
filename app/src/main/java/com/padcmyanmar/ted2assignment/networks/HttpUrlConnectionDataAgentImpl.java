@@ -112,13 +112,12 @@ public class HttpUrlConnectionDataAgentImpl implements TedTalkDataAgents {
 
                 if (TalksResponse.isResponseOK()) {
 
-                    SuccessGetTedTalksEvent successGetNewsEvent = new SuccessGetTedTalksEvent(TalksResponse.getTedTalksVOS());
-                    EventBus.getDefault().post(successGetNewsEvent);
+                    SuccessGetTedTalksEvent successGetTalksEvent = new SuccessGetTedTalksEvent(TalksResponse.getTedTalksVOS());
+                    EventBus.getDefault().post(successGetTalksEvent);
                 } else {
                     ApiErrorEvent apiErrorEvent=new ApiErrorEvent(TalksResponse.getMessage());
                     EventBus.getDefault().post(apiErrorEvent);
                 }
-
 
             }
         }.execute();

@@ -25,6 +25,6 @@ public class WatchAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 9;
+        return 3;
     }
 }

@@ -23,7 +23,7 @@ public class TedTalksViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.iv_talks)
     ImageView ivtalks;
 
-    @BindView(R.id.tv_speaker_name)
+    @BindView(R.id.tv_name)
     TextView tvSpeakerName;
 
     @BindView(R.id.tv_title)
@@ -49,6 +49,7 @@ public class TedTalksViewHolder extends RecyclerView.ViewHolder {
     public void setTalksData(TedTalksVO talks) {
 
         mTalks = talks;
+
         Glide.with(ivtalks.getContext()).load(talks.getImageUrl()).into(ivtalks);
         tvSpeakerName.setText(talks.getSpeakerVOs().getSpeakerName());
         tvTitle.setText(talks.getTitle());

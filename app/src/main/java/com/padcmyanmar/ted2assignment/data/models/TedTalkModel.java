@@ -25,8 +25,8 @@ public class TedTalkModel {
 
     private TedTalkModel() {
         //ttDataAgent = HttpUrlConnectionDataAgentImpl.getObiInstance();
-        //ttDataAgent = OKHttpDataAgentImpl.getInstance();
-        ttDataAgent = RetrofitDataAgentImpl.getInstance();
+        ttDataAgent = OKHttpDataAgentImpl.getInstance();
+        //ttDataAgent = RetrofitDataAgentImpl.getInstance();
         mTedTalksMap = new HashMap<>();
     }
 
@@ -41,7 +41,7 @@ public class TedTalkModel {
     }
 
 
-    public TedTalksVO getNewsById(String newsId) {
+    public TedTalksVO getTalksById(String newsId) {
         return mTedTalksMap.get(newsId);
     }
 

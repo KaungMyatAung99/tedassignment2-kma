@@ -19,7 +19,7 @@ public class TedTalksVO {
     private String imageUrl;
 
     @SerializedName("durationInSec")
-    private int durationInSec;
+    private String durationInSec;
 
     @SerializedName("description")
     private String description;
@@ -43,7 +43,7 @@ public class TedTalksVO {
         return imageUrl;
     }
 
-    public int getDurationInSec() {
+    public String getDurationInSec() {
         return durationInSec;
     }
 
