@@ -79,7 +79,7 @@ public class OKHttpDataAgentImpl implements TedTalkDataAgents {
                 super.onPostExecute(responseString);
                 Gson gson = new Gson();
                 GetTedTalksResponse TalksResponse = gson.fromJson(responseString, GetTedTalksResponse.class);
-                Log.d("OnPostExecute", "NewsListSize : " + TalksResponse.getTedTalksVOS().size());
+                Log.d("OnPostExecute", "TalksListSize : " + TalksResponse.getTedTalksVOS().size());
 
                 if (TalksResponse.isResponseOK()) {
 

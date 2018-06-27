@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +49,8 @@ public class TedTalksDetailActivity extends BaseActivity {
         ButterKnife.bind(this, this);
 
         String talkId = getIntent().getStringExtra("talksId");
+        Log.d("TedTalksDetailActivity", "talksId : " + talkId);
+
 
         TedTalksVO talks = TedTalkModel.getObjInstance().getTalksById(talkId);
         BindData(talks);
@@ -60,6 +63,7 @@ public class TedTalksDetailActivity extends BaseActivity {
     }
 
     private void BindData(TedTalksVO talks) {
+
         Glide.with(ivBackDrop.getContext()).load(talks.getImageUrl()).into(ivBackDrop);
         tvSpeakerName.setText(talks.getSpeakerVOs().getSpeakerName());
         tvTitle.setText(talks.getTitle());

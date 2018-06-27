@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity implements TedDelegate {
     @Override
     public void onTapList(TedTalksVO talks) {
         Intent intent = new Intent(getApplicationContext(),TedTalksDetailActivity.class);
-        intent.putExtra("newsId",talks.getTalkId());
+        intent.putExtra("talksId",talks.getTalkId());
         startActivity(intent);
     }
 
